@@ -3,8 +3,8 @@ import random
 class observe():
     def __init__(self):
         self.check = [0,1,2,3]
-        self.iter = 0
-        self.distrib = [0,0,0,0,0,0,0,0,0,0]
+        self.distrib_1 = [0,0,0,0,0,0,0,0,0,0]
+        self.distrib_2 = [0,0,0,0,0,0,0,0,0,0]
 
     def cycle(self):
         for i in range(4):
@@ -13,10 +13,12 @@ class observe():
                 self.check[i] -= 10
 
     def update(self, strike, ball):
-        self.iter += 1
         if strike + ball != 0:
             for i in self.check:
-                self.distrib[i] += strike+ball
+                self.distrib_1[i] += strike+ball
+        if strike != 0:
+            for j in range(len(self.check)):
+                self.distrib_2[self.check[j]] += 10**j
         self.cycle()
 
 if __name__ == '__main__':
