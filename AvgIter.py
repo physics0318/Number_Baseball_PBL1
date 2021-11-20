@@ -1,6 +1,7 @@
 import Baseball동국
 import Baseball수학
 import math
+import matplotlib.pyplot as plt
 
 score = []
 s = 0
@@ -25,3 +26,8 @@ for i in score:
     V += (avg - i)**2
 d = math.sqrt(V/iter)
 print("average: %f, standard deviation: %f"%(avg, d))
+
+bin = max(score)-min(score)+1
+
+plt.hist(score, bins=bin)
+plt.show()
