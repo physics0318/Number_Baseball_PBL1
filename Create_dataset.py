@@ -1,17 +1,4 @@
-import random
 import numpy as np
-
-def switch(l,a,b):      #두 숫자의 위치를 바꿈
-    x, y = l[a], l[b]
-    l[b] = x
-    l[a] = y
-    return l
-
-def change(l,*args):    #리스트에 없는 다른 숫자로 바꿈
-    n = random.sample([i for i in range(10) if i not in l], len(args))
-    for i in range(len(args)):
-        l[args[i]] = n[i]
-    return l
 
 total = []
 li = []

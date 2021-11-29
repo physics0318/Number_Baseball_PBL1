@@ -1,5 +1,5 @@
 import Baseball동국
-import Baseball수학2
+import Baseball수학
 import math
 import matplotlib.pyplot as plt
 
@@ -8,15 +8,15 @@ s = 0
 V = 0
 iter = 10000
 
-b = Baseball수학2.guess()
 
 for i in range(iter):
+    b = Baseball수학.guess()
     Dgu = Baseball동국.Dongguk()
-    b.iter = 0
-    b.index = [j for j in range(5040)]
+    #b.iter = 0
+    # b.index = [j for j in range(5040)]
 
     while Dgu.strike < 4:
-        num = b.guess()
+        num = b.randGuess()
         print(num)
         Dgu.evaluate(num)
         b.eliminate(num, Dgu.strike, Dgu.ball)
@@ -30,7 +30,7 @@ for i in score:
 d = math.sqrt(V/iter)
 print("average: %f, standard deviation: %f"%(avg, d))
 
-bin = max(score)-min(score)+1
+bin = max(score)-min(score)
 
 plt.hist(score, bins=bin)
 plt.show()

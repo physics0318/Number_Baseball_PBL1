@@ -19,11 +19,12 @@ class guess():
 
     def eliminate(self, l, s, b):
         index = self.total.index(l)
-        self.index.remove(index)
+        self.index.remove(index)    #질문했던거는 다시 질문하지 않는다.
         n = []
         for i in range(len(self.Data[index])):
             if self.Data[index][i] == [s, b]:
                 n.append(i)
+        print(len(n))
         for i in self.index:
             if i in n:
                 pass
@@ -39,9 +40,4 @@ class guess():
 
 if __name__ == "__main__":
     b = guess()
-    x = [3,2,5,7]
-    y = [9,4,8,2]
-    X = b.total.index(x)
-    Y = b.total.index(y)
-    print(b.Data[X][Y])
-    print(b.Data[Y][X])
+    b.eliminate([0,1,2,3],0,4)

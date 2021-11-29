@@ -34,7 +34,6 @@ class Dongguk:
 
 if __name__ == '__main__':
     Dgu = Dongguk()
-    print(Dgu.number)
     while Dgu.strike < 4:
         number = list(map(int, input("무엇: ")))
         Dgu.evaluate(number)
