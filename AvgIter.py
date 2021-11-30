@@ -12,11 +12,12 @@ iter = 10000
 for i in range(iter):
     b = Baseball수학.guess()
     Dgu = Baseball동국.Dongguk()
+    print(Dgu.number)
     #b.iter = 0
     # b.index = [j for j in range(5040)]
 
     while Dgu.strike < 4:
-        num = b.randGuess()
+        num = b.guess()
         print(num)
         Dgu.evaluate(num)
         b.eliminate(num, Dgu.strike, Dgu.ball)

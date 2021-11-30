@@ -85,6 +85,50 @@ class guess():
                     l = []
                     continue
             return l
+    def guess(self):
+        self.iter += 1
+        if self.iter == 1:
+            return [0,1,2,3]
+        elif self.iter == 2:
+            return [4,5,6,7]
+        else:
+            for x in range(len(self.numbers[0])):
+                for y in range(len(self.numbers[1])):
+                    for z in range(len(self.numbers[2])):
+                        for w in range(len(self.numbers[3])):
+                            l = [self.numbers[0][x],self.numbers[1][y],self.numbers[2][z],self.numbers[3][w]]
+                            
+                            skip = False
+                            for a in range(4):
+                                for b in range(4):
+                                    if a != b and l[a]==l[b]:
+                                        skip=True
+                                        break
+                                if skip:
+                                    break
+                            
+                            for a in self.history:
+                                cnt = 0
+                                for b in range(4):
+                                    if l[b] == a[0][b]:
+                                        cnt += 1
+                                if cnt != a[1]:
+                                    skip=True
+                                    break
+
+                            for a in self.history:
+                                cnt = 0
+                                for b in l:
+                                    if b in a[0]:
+                                        cnt += 1
+                                if cnt != a[1]+a[2]:
+                                    skip = True
+                                    break
+
+                            if skip:
+                                continue
+                            else:
+                                return l
 
 if __name__ == '__main__':
     b = guess()
