@@ -9,19 +9,6 @@ class guess():
 
     def eliminate(self, l, strike, ball):                               #strike, ball의 입력에 따라 각 자릿수에 올만한 숫자를 정리하는 함수
         self.history.append([l,strike,ball])                            #과거에 했던 대답과 그에 따른 strike, ball을 기억
-        if self.iter == 2:
-            sum = 0
-            for i in self.history:
-                sum += i[1]+i[2]
-            if sum == 4:
-                for j in self.numbers:
-                    if 8 in j:
-                        j.remove(8)
-                    if 9 in j:
-                        j.remove(9)
-            elif sum == 5:
-                self.must.append(8)
-                self.must.append(9)
         
         if strike == 4:
             return
@@ -46,8 +33,6 @@ class guess():
         self.iter += 1
         if self.iter == 1:
             return [0,1,2,3]
-        elif self.iter == 2:
-            return [4,5,6,7]
         else:
             l = []
             while len(l)<4:
@@ -89,8 +74,6 @@ class guess():
         self.iter += 1
         if self.iter == 1:
             return [0,1,2,3]
-        elif self.iter == 2:
-            return [4,5,6,7]
         else:
             for x in range(len(self.numbers[0])):
                 for y in range(len(self.numbers[1])):
@@ -131,5 +114,10 @@ class guess():
                                 return l
 
 if __name__ == '__main__':
-    b = guess()
-    b.guess
+    Mth = guess()
+    while True:
+        num = Mth.guess()
+        print(num)
+        s, b = input("스트라이크와 볼을 띄어쓰기로 구분하여 입력: ").split()
+        Mth.eliminate(num,int(s),int(b))
+
